@@ -17,3 +17,12 @@ allprojects {
         jcenter()
     }
 }
+
+
+task optionalTask(dependsOn: [":gcebackend:appengineRun",
+                              ":app:connectedAndroidTest",
+                              ':gcebackend:appengineStop']) {
+    doLast {
+        println 'optionalTask completed'
+    }
+}
